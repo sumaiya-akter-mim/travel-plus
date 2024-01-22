@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="shortcut icon" href="Images/Group 40071 (2).png" type="image/x-icon" />
+    <script
+      src="https://kit.fontawesome.com/b848eab2bb.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Merriweather:wght@400;900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:wght@300..800&family=Roboto:wght@400;500;700;900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Travel Plus</title>
+    <style>
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Mulish", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  /* background: #ffffff; */
+  box-sizing: border-box;
+}
+.section-title {
+  color: #131318;
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+.section-desc {
+  color: rgba(19, 19, 24, 0.7);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+.common-color {
+  color: #ff5400;
+}
+
+header {
+  width: 85%;
+  max-width: 74rem;
+  margin: 0 auto;
+}
+nav {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+.nav-right-container {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  font-size: 2.25re;
+  font-weight: 800;
+}
+.nav-img {
+  width: 10%;
+  align-items: center;
+}
+.nav-img > img {
+  width: 3rem;
+  height: 2.5rem;
+}
+.select-time-location select {
+  background: none;
+}
+.nav-title {
+  width: 90%;
+  font-size: 2.25rem;
+  color: #131318;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+.nav-title > span {
+  color: #ff5400;
+}
+.nav-left-container {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+}
+.nav-left-container a {
+  text-decoration: none;
+  color: #424247;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+.nav-left-container a:first-child {
+  color: #ff5400;
+}
+.menu-items {
+  display: none;
+}
+.menu-icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.menu-lists {
+  position: absolute;
+  top: 4.5rem;
+  left: 0;
+  width: 100%;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  max-height: 0;
+  overflow-y: auto;
+  transition: max-height 0.3s ease-out;
+}
+
+.menu-lists.show-menu {
+  max-height: 10rem;
+}
+
+.menu-lists a {
+  text-decoration: none;
+  color: #3a3a3a;
+  padding: 0.5rem;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.menu-lists a:hover {
+  background-color: #d1baba;
+}
+
+
+
+.banner-container {
+  width: 100%;
+  position: relative;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+.bg-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  z-index: 1;
+}
+.banner-img {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(19, 19, 24, 0.8) 0%,
+    rgba(19, 19, 24, 0) 100%
+  );
+  border-radius: 0.5rem;
+  z-index: 2;
+}
+.banner-text-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000000;
+  text-align: center;
+  text-align: center;
+  z-index: 3;
+  border-radius: 0.5rem;
+}
+.banner-text .banner-title {
+  width: 80%;
+  margin: 0 auto;
+  color: #ffffff;
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+.banner-text .banner-desc {
+  width: 70%;
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+.location-select-container {
+  width: 65%;
+  margin: 3rem auto 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.select-time-location {
+  width: 8rem;
+  height: 3rem;
+  border-radius: 8px;
+  background: #fff;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  padding: 0.5rem;
+}
+.select-time-location > label {
+  color: rgba(19, 19, 24, 0.5);
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.select-time-location > select {
+  width: 100%;
+  color: rgba(19, 19, 24, 0.5);
+  font-size: 1rem;
+  font-weight: 400;
+  outline: none;
+  border: none;
+}
+.first-btn {
+  width: 8rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background: #ff5400;
+}
+.first-btn,
+button {
+  cursor: pointer;
+}
+
+.search-btn {
+  width: auto;
+  margin: auto;
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background: transparent;
+}
+
+.search-btn i {
+  margin-right: 0.5rem;
+}
+
+main {
+  width: 85%;
+  max-width: 74rem;
+  margin: 0 auto;
+}
+section {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+.popular-tour-container {
+  width: 100%;
+  margin: 3rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.popular-text,
+.popular-img {
+  flex: 1;
+  height: auto;
+}
+.popular-desc,
+.perfect-place-desc {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#p-details {
+  color: #5a5a5d;
+}
+.popular-desc ul {
+  color: rgba(19, 19, 24, 0.7);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+  margin-left: 5%;
+}
+.popular-desc ul li {
+  margin-bottom: 0.5rem;
+}
+
+.popular-img img {
+  max-width: 100%;
+  max-width: 100%;
+}
+.read-more-btn {
+  border: 0;
+  outline: 0;
+  color: #fff;
+  margin: auto;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 800;
+  background: transparent;
+}
+
+
+
+.destination-container {
+  width: 100%;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.destination-title {
+  width: 65%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.destination-img-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  border-radius: 0.5rem;
+}
+.r1,
+.r2,
+.r3 {
+  display: flex;
+  gap: 1rem;
+}
+.r1 a,
+.r2 a,
+.r3 a {
+  position: relative;
+  text-decoration: none;
+  border-radius: 1rem;
+}
+.img-text {
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  color: #fff;
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 800;
+  opacity: 1;
+}
+
+.r1 img,
+.r2 img,
+.r3 img {
+  max-width: 100%;
+  max-height: 100%;
+  transition: transform 1s ease-in-out;
+}
+.r1 img:hover,
+.r2 img:hover,
+.r3 img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+}
+
+.choose1,
+.choose2,
+.choose3 {
+  width: 100%;
+  max-height: 17rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  transition: transform 1s ease-in-out;
+  border: 1px solid rgba(251, 181, 99, 0.2);
+  background: rgba(251, 181, 99, 0.05);
+}
+.choose2 {
+  border: 1px solid rgba(41, 206, 246, 0.2);
+  background: rgba(41, 206, 246, 0.05);
+}
+.choose3 {
+  width: 50%;
+  margin: 0 auto;
+}
+.choose1:hover,
+.choose2:hover,
+.choose3:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+}
+.choose-img {
+  max-width: 4rem;
+  max-height: 4rem;
+  margin-bottom: 1.5rem;
+}
+.choose-text {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+.choose-desc {
+  font-size: 1rem;
+}
+
+
+.d-img-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.d,
+.d-offer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.d {
+  position: relative;
+  z-index: 1;
+}
+.d-img {
+  width: 100%;
+  max-height: 31.24rem;
+  border-radius: 1rem;
+  background-color: rgba(169, 169, 169, 0.5);
+}
+.d1,
+.d2,
+.d3 {
+  position: absolute;
+  width: 40%;
+  max-height: 24rem;
+  top: 4rem;
+  right: 4rem;
+  z-index: 2;
+  border-radius: 1rem;
+  border: 2px solid #fff;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(2.5px);
+}
+.d2 {
+  right: auto;
+  left: 4rem;
+}
+.d-icon {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  list-style: none;
+  margin-bottom: 1rem;
+}
+.d-icon li span {
+  margin-left: 0.5rem;
+  color: #5a5a5d;
+  font-weight: 400;
+}
+.price-text {
+  color: #ff5400;
+  font-size: 1.25rem;
+  margin: 1rem 0;
+  font-weight: 800;
+}
+.see-packages {
+  width: 20%;
+  margin: 0 auto 3rem;
+}
+
+.perfect-place-container {
+  width: 100%;
+  margin: 3rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+.perfect-place-details,
+.perfect-place-video {
+  flex: 1;
+  height: auto;
+}
+
+.perfect-desc {
+  color: #5a5a5d;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+.perfect-place-desc h3 {
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+.list-text-color {
+  color: #131318;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-left: 5%;
+}
+
+.perfect-place-video {
+  height: 54vh;
+  width: 100%;
+}
+
+.place-video {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.place-video iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 1rem;
+  background: linear-gradient(
+    180deg,
+    #131318 -31.96%,
+    rgba(19, 19, 24, 0) 100%
+  );
+}
+
+
+.newsletter-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.newsletter-left {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  border: 1px solid #ff5400;
+}
+.newsletter-left h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.newsletter-left input {
+  width: 100%;
+  height: 3rem;
+  border: 0;
+  outline: 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: rgba(19, 19, 24, 0.05);
+}
+.newsletter-left::placeholder {
+  color: rgba(19, 19, 24, 0.3);
+  font-size: 1rem;
+  font-weight: 400;
+}
+.newsletter-left div {
+  width: 100%;
+}
+.newsletter-right {
+  flex: auto;
+  width: 100%;
+  height: 26rem;
+}
+.newsletter-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.newsletter-img img {
+  width: 100%;
+  height: 100%;
+}
+.offer-pop-up {
+  position: absolute;
+  right: 1rem;
+  bottom: 4rem;
+  z-index: 2;
+  width: 50%;
+  height: auto;
+  padding: 1rem;
+  text-align: center;
+  transform: rotate(-19.628deg);
+  border-radius: 1rem;
+  background: #ff5400;
+}
+.offer-pop-up p {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+.offer-pop-up h3 {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+footer {
+  width: 100%;
+  background: rgba(19, 19, 24, 0.05);
+}
+.footer {
+  width: 85%;
+  margin: 2rem auto 0;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footer-title {
+  margin-left: 2rem;
+}
+.footer-gap {
+  margin-top: 1rem;
+}
+.footer-links {
+  width: 20%;
+  margin: 2rem auto 0;
+  display: flex;
+  justify-content: space-between;
+}
+.footer-links a {
+  color: #131318;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+.footer hr {
+  width: 80%;
+  margin: 2rem auto;
+  height: 1px;
+  background: rgba(19, 19, 24, 0.1);
+}
+.copyright {
+  color: #131318;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="nav-right-container">
+          <a href="#" class="nav-img"><img src="Images/Group 40071 (2).png" /></a>
+          <a href="#" class="nav-title">Travel <span>Plus</span></a>
+        </div>
+        <div class="nav-left-container">
+          <a href="#">Home</a>
+            <a href="#allpackages">Packages</a>
+            <a href="#">Testimonial</a>
+            <a href="#allblogs">Blog</a>
+            <a href="#contacts">Conatct</a>
+        </div>
+        <div class="menu-items">
+          <a href="#" class="menu-icon" id="menuIcon"><i class="fas fa-bars"></i></a>
+          <div class="menu-lists">
+            <a href="#">Home</a>
+            <a href="#allpackages">Packages</a>
+            <a href="#">Testimonial</a>
+            <a href="#allblogs">Blog</a>
+            <a href="#contacts">Conatct</a>
+          </div>
+        </div>
+      </nav>
+      <section class="banner-container">
+        <div class="banner-img"></div>
+        <img src="Images/Group 13 (1) (1).png" alt="Midnight Background" class="bg-img" />
+        <div class="banner-text-container">
+          <div class="banner-text">
+            <h3 class="banner-title">Explore Your Travel</h3>
+            <p class="banner-desc">
+              Start your dream vacation planning with Travel Plus. Explore new horizons and create lasting memories with our carefully curated travel experiences.
+            </p>
+          </div>
+          <div class="location-select-container">
+            <div class="select-time-location"><label>Where Go</label></div>
+            <div class="select-time-location">
+              <select name="dropdown">
+                <option value="" disabled selected hidden>When</option>
+                <option value="morning">Morning</option>
+                <option value="afternoon">Afternoon</option>
+                <option value="evening">Evening</option>
+                <option value="night">Night</option>
+              </select>
+            </div>
+            <div class="select-time-location">
+              <select name="dropdown">
+                <option value="" disabled selected hidden>Select Type</option>
+                <option value="Maldives">Maldives</option>
+                <option value="Indonesia">Indonesia</option>
+                <option value="Srilanka">Srilanka</option>
+                <option value="North America">North America</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Cox's Bazar">Cox's Bazar</option>
+              </select>
+            </div>
+            <div class="first-btn">
+              <button class="search-btn">
+                <i class="fas fa-search"></i>Find Here
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+    <main>
+      <section class="popular-tour-container">
+        <div class="popular-text">
+          <div class="popular-desc">
+            <h3 class="section-title">Our Popular Tours</h3>
+            <p class="section-desc">
+              Embark on amazing journeys with our popular tours. Whether you prefer beautiful beaches or cultural wonders, we have the perfect adventure for you.
+            </p>
+            <ul>
+              <li>
+                Experience the enchantment of local cultures and breathtaking landscapes on our meticulously selected tours.
+              </li>
+              <li>
+                Immerse yourself in the beauty of nature and craft enduring memories with Travel Plus.
+              </li>
+              <li>
+                Experience world-class service with our tours, ensuring a seamless and enjoyable travel experience for you.
+              </li>
+            </ul>
+            <p class="section-desc" id="p-details">
+              Embark on new adventures and maximize your vacation with Travel Plus. Our thoughtfully curated tours promise an unforgettable adventure.
+            </p>
+            <div class="first-btn" id="read-more">
+              <button class="read-more-btn">Read more</button>
+            </div>
+          </div>
+        </div>
+        <div class="popular-img">
+          <img src="Images/Rectangle 4.png" alt="" />
+        </div>
+      </section>
+
+      <section class="destination-container">
+        <div class="destination-title">
+          <h3 class="section-title">Choose Your Destination</h3>
+          <p class="section-desc desc-gap">
+            Discover a variety of destinations that cater to every traveler's preferences. From tropical paradises to cultural hubs, find your ideal getaway with Travel Plus.
+          </p>
+        </div>
+        <div class="destination-img-container">
+          <div class="r1">
+            <a href="#">
+              <img src="Images/Rectangle 5.png" />
+              <span class="img-text">Maldives</span>
+            </a>
+            <a href="#">
+              <img src="Images/Rectangle 8.png" />
+              <span class="img-text">Indonesia</span>
+            </a>
+          </div>
+          <div class="r2">
+            <a href="#">
+              <img src="Images/Rectangle 6.png" />
+              <span class="img-text">Srilanka</span>
+            </a>
+            <a href="#">
+              <img src="Images/Rectangle 7.png" />
+              <span class="img-text">North America</span>
+            </a>
+            <a href="#">
+              <img src="Images/Rectangle 9.png" />
+              <span class="img-text">Kashmir</span>
+            </a>
+          </div>
+          <div class="r3">
+            <a href="#">
+              <img src="Images/Rectangle 11.png" />
+              <span class="img-text">Bangladesh</span>
+            </a>
+            <a href="#">
+              <img src="Images/Rectangle 10.png" />
+              <span class="img-text">Bandarban</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="chooseus-container destination-container">
+        <div class="destination-title">
+          <h3 class="section-title">Why Choose Us</h3>
+          <p class="section-desc desc-gap">
+            Elevate your travel experience with Travel Plus. Explore why our services stand out and opt for us on your upcoming adventure.
+          </p>
+        </div>
+        <div class="destination-img-container">
+          <div class="r1">
+            <div class="choose1">
+              <div><img src="Images/hotel.svg" class="choose-img" /></div>
+              <h3 class="section-title choose-text">Handpicked Hotels</h3>
+              <p class="section-desc desc-gap choose-desc">
+                Enjoy cozy stays at carefully selected hotels, guaranteeing a comfortable and memorable travel experience.
+              </p>
+            </div>
+            <div class="choose2">
+              <div><img src="Images/map.svg" class="choose-img" /></div>
+              <h3 class="section-title choose-text">World Class Service</h3>
+              <p class="section-desc desc-gap choose-desc">
+                Experience exceptional service with Travel Plus. Our dedicated team is here to ensure your satisfaction and comfort throughout your journey.
+              </p>
+            </div>
+          </div>
+          <div class="r2">
+            <div class="choose3">
+              <div><img src="Images/tag.svg" class="choose-img" /></div>
+              <h3 class="section-title choose-text">Best Price Guarantee</h3>
+              <p class="section-desc desc-gap choose-desc">
+                Discover unbeatable travel deals with Travel Plus. Our best price guarantee ensures you get great value on every tour.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+  
+      <section class="d-container destination-container" id="allpackages">
+        <div class="destination-title">
+          <h3 class="section-title">Deals & iscounts</h3>
+          <p class="section-desc desc-gap">
+            Seize the opportunity with our exclusive deals and ds. Discover incredible destinations without exceeding your budget with Travel Plus.
+          </p>
+        </div>
+        <div class="d-img-container">
+          <div class="d">
+            <div class="d-offer">
+              <img src="Images/Group 39.png" class="d-img" />
+            </div>
+            <div class="choose1 d1">
+              <ul class="common-color d-icon">
+                <li>
+                  <i class="fas fa-clock"></i><span>7 Day / 6 Night</span>
+                </li>
+                <li><i class="fas fa-users"></i><span>Max: 10</span></li>
+                <li>
+                  <i class="fas fa-map-marker-alt"></i><span>Thailand</span>
+                </li>
+              </ul>
+              <h3 class="section-title choose-text">Tour To Bangkok</h3>
+              <p class="section-desc desc-gap choose-desc">
+                Explore the enchanting beauty of Bangkok with our exclusive
+                7-day tour. Immerse yourself in the rich culture and stunning
+                landscapes.
+              </p>
+              <p class="price-text">Price: $1000-$3000</p>
+              <div class="first-btn" id="read-more">
+                <button class="read-more-btn book-btn">Book Now</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="d">
+            <div class="d-offer">
+              <img src="Images/Group 40.png" class="d-img" />
+            </div>
+            <div class="choose2 d2">
+              <ul class="common-color d-icon">
+                <li>
+                  <i class="fas fa-clock"></i><span>6 Day / 5 Night</span>
+                </li>
+                <li><i class="fas fa-users"></i><span>Max: 8</span></li>
+                <li>
+                  <i class="fas fa-map-marker-alt"></i><span>Bangladesh</span>
+                </li>
+              </ul>
+              <h3 class="section-title choose-text">Tour To Cox's Bazar</h3>
+              <p class="section-desc desc-gap choose-desc">
+                Indulge in blissful moments at Cox's Bazar, renowned for its mesmerizing coastal charm and the distinction of hosting the world's longest natural sea beach.</p>
+              <p class="price-text">Price: $800-$3000</p>
+              <div class="first-btn" id="read-more">
+                <button class="read-more-btn book-btn">Book Now</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="d">
+            <div class="d-offer">
+              <img src="Images/Group 39.png" class="d-img" />
+            </div>
+            <div class="choose3 d3">
+              <ul class="common-color d-icon">
+                <li>
+                  <i class="fas fa-clock"></i><span>10 Day / 9 Night</span>
+                </li>
+                <li><i class="fas fa-users"></i><span>Max: 20</span></li>
+                <li>
+                  <i class="fas fa-map-marker-alt"></i><span>Malaysia</span>
+                </li>
+              </ul>
+              <h3 class="section-title choose-text">Tour To Santorini</h3>
+              <p class="section-desc desc-gap choose-desc">
+                Discover the enchanting beauty of Santorini with our exclusive 7-day tour. Immerse yourself in the rich culture and awe-inspiring landscapes that await you on this unforgettable journey.
+              </p>
+              <p class="price-text">Price: $1000-$3000</p>
+              <div class="first-btn" id="read-more">
+                <button class="read-more-btn book-btn">Book Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="first-btn see-packages">
+        <button class="read-more-btn">See All Packages</button>
+      </div>
+
+
+      <section class="perfect-place-container">
+        <div class="perfect-place-details">
+          <div class="perfect-place-desc">
+            <h3 class="section-title">A Simple Perfect Place <br> To Get Lost</h3>
+            <p class="parfect-desc">
+               Discover serenity in a simple and perfect place to lose yourself. Experience tranquility and craft timeless memories with Travel plus.
+            </p>
+            <ul class="list-text-color">
+              <li>
+                Submerge yourself in the serene beauty of nature and weave enduring memories with Travel Plus.
+              </li>
+              <li>
+                Uncover hidden gems and embrace the joy of exploration on our thoughtfully curated tours.
+              </li>
+            </ul>
+            <div class="first-btn" id="read-more">
+              <button class="read-more-btn">Read more</button>
+            </div>
+          </div>
+        </div>
+        <div class="perfect-place-video">
+          <div class="place-video">
+            <iframe
+              src="https://www.youtube.com/embed/Hfoi76YbnzA"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+      
+      <section class="newsletter-container" id="contacts">
+        <div class="newsletter-left">
+          <h3 class="section-title">Newsletter</h3>
+            <p class="parfect-desc">
+              Stay informed with the latest travel news and valuable tips. Subscribe to our newsletter and receive daily insights for your upcoming adventures.
+            </p>
+            <hr>
+            <input type="text" placeholder="Enter your name">
+            <input type="emai" placeholder="Enter your email">
+            
+            <div class="first-btn newsletter-btn">
+              <button class="read-more-btn">Subscribe</button>
+            </div>
+          </div>
+        </div>
+        <div class="newsletter-right">
+          <div class="newsletter-img">
+            <img src="Images/Rectangle 8 (1).png">
+            <div class="offer-pop-up">
+              <p>travelplus.com</p>
+              <h3>Save up to 70%</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer">
+        <div class="nav-right-container footer-nav">
+          <a href="#" class="nav-img "><img src="Images/Group 40071 (2).png" /></a>
+          <a href="#" class="nav-title footer-title">Travel<span>Plus</span></a>
+        </div>
+        <p class="section-desc desc-gap choose-desc footer-gap">
+          Embark on a journey to explore the wonders of the world with Travel Plus. Uncover new adventures, immerse yourself in diverse cultures, and create memories that will last a lifetime.
+        </p>
+        <div class="footer-links">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+        </div>
+        <hr />
+        <p class="copyright">&#169;2024, All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      document
+        .getElementById("menuIcon")
+        .addEventListener("click", function () {
+          document.querySelector(".menu-lists").classList.toggle("show-menu");
+        });
+    </script>
+  </body>
+</html>
